@@ -3,6 +3,7 @@
 -->
 <?php
 require_once("head.php");
+
 ?>
 <pre>
     &lt;
