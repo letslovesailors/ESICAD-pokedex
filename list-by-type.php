@@ -1,18 +1,17 @@
-<!-- 
-    Ce fichier représente la page de liste par type de pokémon du site.
--->
 <?php
-require_once("head.php");
 
-?>
-<pre>
-    &lt;
-    A REMPLACER PAR VOTRE CODE POUR CHARGER ET AFFICHER DANS UN TABLEAU LA LISTE DES POKEMONS CLASSES PAR LEUR TYPE, PUIS PAR LEUR NOM.
-    CHAQUE POKEMON DOIT ETRE CLIQUABLE POUR NAVIGUER SUR UNE PAGE OU L'ON AFFICHE SON IMAGE ET L'ENSEMBLE DE SES CARACTERISTIQUES
-    &gt;
-    </pre>
-<?php
-require_once("footer.php");
+require_once("head.php");
+require_once("database-connection.php");
+
+$result = $databaseConnection -> query ( "SELECT * FROM pokemon where");
+while ( $row =$result ->fetch_assoc()) {
+    echo '<p>'.$row['nom'].'</p>';
+    echo '<p>'.$row['IdPokemon'].'</p>';
+    echo '<img src="'. $row["UrlPhoto"] .'"alt="">' ;
+    
+}
+
+require_once("footer.php")
 ?>
 
 
