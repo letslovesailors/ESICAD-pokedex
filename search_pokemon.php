@@ -10,7 +10,5 @@ foreach ($res as $row){
 }
 
 
-
-
 require_once("footer.php");
 ?>
