@@ -1,22 +1,26 @@
 <?php
 require_once("head.php");
+require_once("database-connection.php");
 
+$conn = new mysqli("localhost", "root", "", "pokemon");
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $nom = $_POST['nom'];
-    $prenom = $_POST['prenom'];
-    $login = $_POST['login'];
-    $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
-
-    $stmt = $pdo->prepare("INSERT INTO user (nom, prenom, login, password) VALUES (?, ?, ?, ?)");
-    if ($stmt->execute([$nom, $prenom, $login, $password])) {
-        echo "Inscription réussie !";
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $name = $_POST["name"];
+    $prenom = $_POST["prenom"];
+    $login = $_POST["login"];
+    $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
+    
+    // Insertion de l'utilisateur
+    $sql = "INSERT INTO user (name, prenom, login, PASSWORD) VALUES ('$name', '$prenom', '$login', '$password')";
+    
+    if ($conn->query($sql) === TRUE) {
+        echo "Inscription réussie!";
     } else {
-        echo "Erreur lors de l'inscription.";
+        echo "Erreur: " . $conn->error;
     }
 }
-
 ?>
+
 
 <form method="POST">
     Nom: <input type="text" name="nom" required><br>

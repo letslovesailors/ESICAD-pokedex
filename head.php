@@ -17,8 +17,11 @@
     <header>
         <a href="index.php">
             <h1>Pokedex Du Professeur Chen</h1>
+            
         </a>
-        <form id="search-bar" action="search_pokemon.php">
+        <a href="register.php">S'inscrire</a>
+        <form id="search-bar" action="seara href="register.php">S'inscrire</a>
+        </a>ch_pokemon.php">
             <span class="input-group">
                 <input id="q" name="q" type="search" placeholder="Rechercher un pokémon"><button type="submit">🔎</button>
             </span>
